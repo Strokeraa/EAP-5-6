@@ -52,4 +52,33 @@ h1 {
     width: 300px;
 }
 
+.container h1 {
+    margin-bottom: 80px; /* Aumenta o espaço abaixo do título */
+}
+
+.button-grid {
+    grid-template-columns: 1fr 1fr; /* Dois botões lado a lado */
+    gap: 40px; /* Aumenta o espaço entre os botões */
+}
+
+.button-visualizar,
+.button-editar {
+    display: block;
+    padding: 20px 40px; /* Aumenta o padding para botões maiores */
+    background-color: #3498db; 
+    color: white;
+    text-decoration: none;
+    border-radius: 10px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.2em; /* Aumenta o tamanho da fonte */
+}
+
+.button-visualizar:hover {
+    background-color: #2980b9; /* Cor mais escura no hover */
+}
+
+.button-editar:hover {
+    background-color: #c0392b; /* Cor vermelha no hover para o botão "Editar" */
+}
 
