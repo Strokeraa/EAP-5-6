@@ -1,0 +1,17 @@
+1 TURNO,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+2 TURNO,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+3 TURNO,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,
+,IJ,,,,,,,

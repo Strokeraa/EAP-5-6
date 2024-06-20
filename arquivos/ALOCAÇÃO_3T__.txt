@@ -1,0 +1,42 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9
+,ALOCAÇÃO E PLANEJAMENTO EAP 5 NO 3º TURNO,,,,,,,,OPERADORES
+,PRO.,MÁQUINA,ITEM,FUNCIONÁRIO,,REFEIÇÃO,OBSERVAÇÕES,,ALBERTO
+,,IJ-032,310,OM,,:,,,ALEX
+,,IJ-035,,OM,,,,,BRENDON
+,,,,AP VISUAL,,,,,BRYAN
+,,,,AP VISUAL,,,,,DAVI
+,,,,AP   FC-01,,,,,EDILSON
+,,,,AP EMBA.,,,,,EMERSON
+,,IJ-126,8385,OM,,:,,,GABRIEL
+,,IJ-056,7145,OM,,,,,GISLENE
+,,,,VISUAL,,,,,GUIBSON
+,,,,EMBA LAGEM,,,,,JORGE
+,ALOCAÇÃO E PLANEJAMENTO EAP 6 NO 3º TURNO,,,,,,,,MÁRCIO 
+,,IJ-049,,OM,,:,,,PAULO
+,,,,AP,,,,,SILVÂNIA
+,,FC-11,,O/A,,:,,,THIAGO
+,,IJ-114,,OM,,:,,,
+,,,,AP,,,,,AUXILIARES
+,,IJ-127,,OM,,:,,,ADALCINEIDE
+,,,,AP,,,,,AGLAI
+,,IJ-113,,OM,,:,,,ANA PAULA
+,,,,AP,,,,,ELISÂNGELA
+,,IJ-020,,OM,,:,,,FERNANDA
+,,,,AP,,,,,FLÁVIA
+,,IJ-024,,OM,,:,,,GIOVANA
+,,,,AP,,,,,LEILIANE
+,,IJ-162,,OM,,:,,,LIDIANE
+,,IJ-164,,OM,,:,,,MÁRCIA
+,,IJ-017,,OM,,:,,,ROSEMARY
+,,IJ-170,,OM,,:,,,TAINARA
+,,,,AP,,,,,
+,,FC-07,,OM,,:,,,
+,,REVED,,OM,,:,,,AUSÊNCIAS
+,,EMBAL.,VÁRIOS,AP,,:,,,
+,,,,AP,,,,,
+,,EG-02,,AP,,:,,,
+,,EG-09,,AP,,:,,,
+,,IJ-044,,OM,,:,,,
+,,FC-12,,OM,,:,,,FÉRIAS
+,,,,AP,,,,,
+,,BD-02,,,,,,,

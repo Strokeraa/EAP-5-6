@@ -1,0 +1,78 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff8b8b, #e71212); /* Gradiente */
+    color: white;
+  }
+
+  .container {
+    text-align: center;
+    padding: 50px; /* Aumenta o padding para mais espaço */
+    border-radius: 20px; /* Borda mais arredondada */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.15
+    ); /* Fundo semi-transparente mais claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  }
+
+  h1 {
+    font-size: 3.5em; /* Título maior */
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Sombra mais intensa */
+  }
+
+  table {
+    width: 90%; /* Tabela um pouco mais larga */
+    margin: 0 auto;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 20px; /* Mesma borda arredondada do container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Mesma sombra do container */
+  }
+
+  th,
+  td {
+    padding: 18px; /* Aumenta o padding das células */
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.9
+    ); /* Fundo das células mais branco */
+    color: #222; /* Cor do texto mais escura */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Linha separadora mais sutil */
+    transition: background-color 0.3s ease; /* Transição suave para o hover */
+  }
+
+  th {
+    text-transform: uppercase;
+    font-weight: 600; /* Peso da fonte um pouco mais leve */
+    background-color: #e71212; /* Cor de fundo do cabeçalho igual ao gradiente */
+    color: white;
+  }
+
+  /* Zebra stripes */
+  tbody tr:nth-child(even) {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); /* Linhas pares mais claras */
+  }
+
+  /* Hover effect */
+  tbody tr:hover {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /* Efeito de hover mais suave */
+  }

@@ -1,0 +1,19 @@
+Unnamed: 0,Unnamed: 1,Unnamed: 2,LIMPEZA DE BCF REVISÃO DAS CRUZETAS,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8
+,,,,,,,,
+,MÁQUINA,RESPONSÁVEL ,JAN,FEV,MAR,ABR,MAI,JUN
+,IJ-032,PÂMELA,,,,,,
+,IJ-035,PÂMELA,,,,,,
+,IJ-056,PÂMELA,,,,,,
+,IJ-126,PÂMELA,,,,,,
+,IJ-127,GUSTAVO,,,,,,
+,IJ-113,GUSTAVO,,,,,,
+,IJ-049,GUSTAVO,,,,,,
+,,,,,,,,
+,MÁQUINA,RESPONSÁVEL ,JUL,AGO,SET,OUT,NOV,DEZ
+,IJ-032,PÂMELA,,,,,,
+,IJ-035,PÂMELA,,,,,,
+,IJ-056,PÂMELA,,,,,,
+,IJ-126,PÂMELA,,,,,,
+,IJ-127,GUSTAVO,,,,,,
+,IJ-113,GUSTAVO,,,,,,
+,IJ-049,GUSTAVO,,,,,,
