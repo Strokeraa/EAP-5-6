@@ -1,0 +1,83 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff8b8b, #e71212);
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.button-link {
+    position: relative; /* Para posicionar o popup */
+}
+
+.button-image {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+}
+
+/* Estilos do Popup */
+.popup {
+    display: none;
+    position: absolute;
+    bottom: 120%; /* Posiciona acima do botão */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
+
+.button-link:hover .popup {
+    display: block;
+}
+
+.popup-link {
+    display: block;
+    padding: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.popup-link:hover {
+    background-color: #f0f0f0;
+}
