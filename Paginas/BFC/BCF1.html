@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exibição de Dados do 1° BCF</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Dados do 1° BCF</h1>
+    <a href="../../index.html"><button>MENU</button></a>
+    <a href="BCF2.html"><button>2° BCF</button></a>
+    <table id="dataTable"></table>
+
+    <script>
+      fetch("../../arquivos/BCF.txt")
+        .then((response) => response.text())
+        .then((text) => {
+          const rows = text.split("\n").filter((row) => row.trim() !== "");
+
+          const table = document.getElementById("dataTable");
+
+          // Encontra o índice do 1° BCF
+          let bcf1Index = -1;
+          for (let i = 0; i < rows.length; i++) {
+            if (
+              rows[i].trim() ===
+              "1 BCF,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN"
+            ) {
+              bcf1Index = i;
+              break;
+            }
+          }
+
+          // Encontra o índice do 2° BCF
+          let bcf2Index = rows.length; // Inicializa com o final do arquivo
+          for (let i = bcf1Index + 1; i < rows.length; i++) {
+            if (rows[i].trim().startsWith("2 BCF")) {
+              // Verifica apenas o início da linha
+              bcf2Index = i;
+              break;
+            }
+          }
+
+          // Cria cabeçalho da tabela
+          const header = table.createTHead();
+          const headerRow = header.insertRow(0);
+          const headerCells = rows[bcf1Index].split(",");
+          for (let i = 1; i < headerCells.length; i++) {
+            const cell = headerRow.insertCell();
+            cell.outerHTML = `<th>${headerCells[i].trim()}</th>`;
+          }
+
+          // Cria corpo da tabela
+          const tbody = table.createTBody();
+          for (let i = bcf1Index + 1; i < bcf2Index; i++) {
+            const row = tbody.insertRow();
+            const rowData = rows[i].split(",");
+            for (let j = 1; j < rowData.length; j++) {
+              const cell = row.insertCell();
+              cell.textContent = rowData[j].trim();
+            }
+          }
+        })
+        .catch((error) => console.error("Erro ao ler o arquivo:", error));
+    </script>
+  </body>
+</html>

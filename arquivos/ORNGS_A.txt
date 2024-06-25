@@ -1,17 +1,21 @@
 1 TURNO,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
+,IJ-032,HEVERTON,A,C,C,A ,C,C
+,IJ-035,HEVERTON,A,1,C,A ,C,C
+,IJ-114,HEVERTON,C,A,C,C,A,C
+,IJ-020,LUIS FRANCISCO,C,C,A,C,C,A
+,IJ-170,LUIS FRANCISCO,C,A,C,C,A,C
+,IJ-171,LUIS FRANCISCO,C,A,C,C,A,C
 2 TURNO,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
+,IJ,teste,A,C,C,A ,C,C
+,IJ,teste,A,2,C,A ,C,C
+,IJ,teste,C,A,C,C,A,C
+,IJ,teste,C,C,A,C,C,A
+,IJ,teste,C,A,C,C,A,C
+,IJ,teste,C,A,C,C,A,C
 3 TURNO,MAQUINA,RESPONSAVEL,JAN,FEV,MAR,ABR,MAI,JUN
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
-,IJ,teste,1,2,3,4,5,6
+,IJ,teste,A,C,C,A ,C,C
+,IJ,teste,A,3,C,A ,C,C
+,IJ,teste,C,A,C,C,A,C
+,IJ,teste,C,C,A,C,C,A
+,IJ,teste,C,A,C,C,A,C
+,IJ,teste,C,A,C,C,A,C

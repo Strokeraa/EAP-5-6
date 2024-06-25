@@ -13,6 +13,4 @@ Unnamed: 0,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unn
 ,IJ-044,,,,,,,,IJ-044,,,,,,,,,,,,,,,,,,,,,,,
 ,IJ-170,,,,,,,,IJ-170,,,,,,,,,,,,,,,,,,,,,,,
 ,IJ-171,,,,,,,,IJ-171,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,EAP 6 TOTAL,,META                   VULCANIZ.,REAL REFUGO,REAL                   VULCANIZ.,%REF,%VULC,,META DE EMBALAGEM,,,,,,,,,,,,,,,,,,TOTAL EMBALADO,,,,,

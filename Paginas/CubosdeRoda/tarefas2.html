@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tarefas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .date-info {
+            text-align: right;
+        }
+        .centered-cell {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Tarefas</h1>
+        <div class="date-info">
+            <p id="data"></p>
+            <p id="dia"></p>
+        </div>
+    </div>
+    <h2>AUXILIARES DE PRODUÇÃO</h2> 
+    <a href="../../index.html"><button>MENU</button></a>
+    <a href="tarefas1.html"><button>OPERADORES DE MAQUINA</button></a>
+    <table id="dataTable"></table>
+
+    <script>
+        fetch("../../arquivos/Tarefas.txt")
+            .then(response => response.text())
+            .then(text => {
+                const rows = text.split("\n").filter(row => row.trim() !== "");
+                const table = document.getElementById("dataTable");
+
+                // Find the index of the second part
+                let startIndex = -1;
+                for (let i = 0; i < rows.length; i++) {
+                    if (rows[i].trim() === "2 PARTE,AUXILIARES DE PRODUÇÃO,TAREFAS") {
+                        startIndex = i;
+                        break;
+                    }
+                }
+
+                if (startIndex === -1) {
+                    console.error("Seção '2 PARTE,AUXILIARES DE PRODUÇÃO,TAREFAS' não encontrada.");
+                    return;
+                }
+
+                // Find the index of the next section or the end of the file
+                let endIndex = rows.length; 
+                for (let i = startIndex + 1; i < rows.length; i++) {
+                    if (rows[i].trim().startsWith("1 PARTE") || rows[i].trim().startsWith("Data:")) {
+                        endIndex = i;
+                        break;
+                    }
+                }
+
+                // Extrair data e dia da última linha
+                const lastRowData = rows[rows.length - 1].split(",");
+                const data = lastRowData[0].trim();
+                const dia = lastRowData[1].trim();
+
+                // Exibir data e dia nos elementos <p>
+                document.getElementById("data").textContent = data;
+                document.getElementById("dia").textContent = dia;
+
+                // Create table header 
+                const header = table.createTHead();
+                const headerRow = header.insertRow(0);
+                const headerCells = rows[startIndex].split(",");
+                for (let i = 1; i < headerCells.length; i++) {
+                    const cell = headerRow.insertCell();
+                    cell.outerHTML = `<th>${headerCells[i].trim()}</th>`;
+                }
+
+                // Create table body (excluding the last row)
+                const tbody = table.createTBody();
+                for (let i = startIndex + 1; i < endIndex - 1; i++) { 
+                    const row = tbody.insertRow();
+                    const rowData = rows[i].split(",");
+                    for (let j = 1; j < rowData.length; j++) {
+                        const cell = row.insertCell();
+                        cell.textContent = rowData[j].trim();
+                    }
+                }
+
+                // Add the last row with centered text
+                const lastRow = tbody.insertRow();
+                const lastCell = lastRow.insertCell();
+                lastCell.colSpan = headerCells.length; 
+                lastCell.classList.add("centered-cell");
+                lastCell.textContent = "23:50 DIRIGIR-SE A MÁQUINA ALOCADA PARA TROCA DE TURNO";
+            })
+            .catch(error => console.error("Erro ao ler o arquivo:", error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exibição de Dados TPM</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #semana-info {
+            text-align: center;
+            margin-top: 20px; /* Ajuste conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <h1>Dados TPM - 2°Turno</h1>
+    <a href="../../index.html"><button>MENU</button></a>
+    <a href="TPM1.html"><button>1°Turno</button></a>
+    <a href="TPM3.html"><button>3°Turno</button></a>
+    <table id="dataTable"></table>
+    <div id="semana-info"></div>
+
+    <script>
+        function carregarDados(turnoFiltro) {
+          fetch("../../arquivos/TPM.txt")
+            .then((response) => response.text())
+            .then((text) => {
+              const rows = text.split("\n").filter((row) => row.trim() !== "");
+              const table = document.getElementById("dataTable");
+              const semanaInfo = document.getElementById("semana-info");
+  
+              // Encontra o índice da primeira linha do turno desejado
+              let turnoIndex = -1;
+              for (let i = 0; i < rows.length; i++) {
+                if (rows[i].startsWith(turnoFiltro)) {
+                  turnoIndex = i + 1; // Começa na próxima linha após o cabeçalho do turno
+                  break;
+                }
+              }
+  
+              // Encontra o índice do próximo turno (ou final do arquivo)
+              let proximoTurnoIndex = rows.length;
+              for (let i = turnoIndex; i < rows.length; i++) {
+                if (
+                  rows[i].startsWith("1 TURNO") ||
+                  rows[i].startsWith("2 TURNO") ||
+                  rows[i].startsWith("3 TURNO")
+                ) {
+                  proximoTurnoIndex = i;
+                  break;
+                }
+              }
+  
+              // Cria o cabeçalho da tabela
+              const header = table.createTHead();
+              const headerRow = header.insertRow(0);
+              const headerCells = rows[turnoIndex - 1].split(","); // Usa a linha anterior como cabeçalho
+              for (let i = 1; i < headerCells.length; i++) {
+                // Ignora a primeira coluna (vazia)
+                const cell = headerRow.insertCell();
+                cell.outerHTML = `<th>${headerCells[i].trim()}</th>`;
+              }
+  
+              // Cria o corpo da tabela
+              const tbody = table.createTBody();
+              for (let i = turnoIndex; i < proximoTurnoIndex; i++) {
+                // Remove todos os espaços em branco antes de verificar se a linha está vazia
+                if (rows[i].replace(/\s/g, "") !== "") {
+                  const row = tbody.insertRow();
+                  const rowData = rows[i].split(",");
+                  for (let j = 1; j < rowData.length; j++) {
+                    const cell = row.insertCell();
+                    cell.textContent = rowData[j].trim();
+                  }
+                }
+              }
+  
+              // Encontrar a linha com a informação da semana
+              for (let i = rows.length - 1; i >= 0; i--) {
+                const match = rows[i].match(/SEMANA\s+N°\s*(\d+)/i); // Regex para "SEMANA N°" seguido de número
+                if (match) {
+                  const semanaInfoText = match[1].replace(/,/g, ""); // Remove vírgulas do número da semana
+                  semanaInfo.textContent = `SEMANA Nº ${semanaInfoText}`;
+                  break;
+                }
+              }
+            })
+            .catch((error) => console.error("Erro ao ler o arquivo:", error));
+        }
+  
+        // Chama a função para carregar os dados do 3º turno ao carregar a página
+        window.onload = () => carregarDados("2 TURNO");
+      </script>
+</body>
+</html>

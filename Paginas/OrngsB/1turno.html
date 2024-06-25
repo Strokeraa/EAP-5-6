@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exibição de Dados do Primeiro Turno</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dados do Primeiro Turno</h1>
+    <a href="../../index.html"><button>MENU</button></a>
+    <a href="2turno.html"><button>2°Turno</button></a>
+    <a href="3turno.html"><button>3°Turno</button></a>
+    <table id="dataTable"></table>
+
+    <script>
+fetch('../../arquivos/ORNGS_B.txt')
+  .then(response => response.text())
+  .then(text => {
+    const rows = text.split('\n').filter(row => row.trim() !== '');
+
+    const table = document.getElementById('dataTable');
+
+    // Encontra o índice do 1º turno
+    let turno1Index = -1;
+    for (let i = 0; i < rows.length; i++) {
+      if (rows[i].trim() === '1 TURNO,MAQUINA,RESPONSAVEL,JUL,AGO,SET,OUT,NOV,DEZ') {
+        turno1Index = i;
+        break;
+      }
+    }
+
+    // Encontra o índice do 2º turno
+    let turno2Index = -1;
+    for (let i = turno1Index + 1; i < rows.length; i++) {
+      if (rows[i].trim() === '2 TURNO,MAQUINA,RESPONSAVEL,JUL,AGO,SET,OUT,NOV,DEZ') {
+        turno2Index = i;
+        break;
+      }
+    }
+
+    // Cria cabeçalho da tabela
+    const header = table.createTHead();
+    const headerRow = header.insertRow(0);
+    const headerCells = rows[turno1Index].split(',');
+    for (let i = 1; i < headerCells.length; i++) {
+      const cell = headerRow.insertCell();
+      cell.outerHTML = `<th>${headerCells[i].trim()}</th>`;
+    }
+
+    // Cria corpo da tabela
+    const tbody = table.createTBody();
+    for (let i = turno1Index + 1; i < turno2Index; i++) {
+      const row = tbody.insertRow();
+      const rowData = rows[i].split(',');
+      for (let j = 1; j < rowData.length; j++) {
+        const cell = row.insertCell();
+        cell.textContent = rowData[j].trim();
+      }
+    }
+  })
+  .catch(error => console.error('Erro ao ler o arquivo:', error));
+    </script>
+</body>
+</html>
