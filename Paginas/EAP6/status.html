@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EAP 6 - Status dos Equipamentos</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px; /* Espaço entre as tabelas */
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .date-info {
+        text-align: right;
+      }
+      .centered-cell {
+        text-align: center;
+      }
+
+      ::-webkit-scrollbar {
+        width: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+      <h1>EAP 6 - Status dos Equipamentos</h1>
+    </div>
+    <a href="../../index.html"><button>MENU</button></a>
+    <a href="EAP6.HTML"><button>Status das Máquinas</button></a>
+
+    <table id="dataTable"></table>
+    <table id="dataTable2"></table>
+
+    <script>
+      fetch("../../arquivos/EAP_6.txt")
+        .then(response => response.text())
+        .then(text => {
+          const rows = text.split("\n").filter(row => row.trim() !== "");
+
+          // Função para criar tabela
+          function createTable(tableId, startRow, endRow) {
+            const table = document.getElementById(tableId);
+            const header = table.createTHead();
+            const headerRow = header.insertRow(0);
+
+            // Criar segunda linha do cabeçalho com os nomes das colunas
+            const headerCells = rows[startRow].replace(/,$/, "").split(",");
+            for (let i = 0; i < headerCells.length; i++) {
+              const cell = headerRow.insertCell();
+              cell.outerHTML = `<th>${headerCells[i].trim()}</th>`;
+            }
+
+            // Criar corpo da tabela (começando da linha após o cabeçalho)
+            const tbody = table.createTBody();
+            for (let i = startRow + 1; i < endRow; i++) {
+              const row = tbody.insertRow();
+              const rowData = rows[i].replace(/,$/, "").split(",");
+              for (let j = 0; j < rowData.length; j++) {
+                const cell = row.insertCell();
+                cell.textContent = rowData[j].trim();
+              }
+            }
+
+            // Remover linhas vazias no final
+            while (tbody.lastChild && tbody.lastChild.textContent.trim() === "") {
+              tbody.removeChild(tbody.lastChild);
+            }
+          }
+
+          // Encontrar o índice de início dos dados para "STATUS EQUIPAMENTOS"
+          const startIndex1 = rows.findIndex(row => row.startsWith(" STATUS EQUIPAMENTOS"));
+          if (startIndex1 === -1) {
+            console.error("Linha de cabeçalho 'STATUS EQUIPAMENTOS' não encontrada.");
+            return;
+          }
+
+          // Encontrar o índice de fim dos dados para "STATUS EQUIPAMENTOS"
+          const endIndex1 = rows.findIndex((row, idx) => idx > startIndex1 && row.startsWith("STATUS TOTAL"));
+          if (endIndex1 === -1) {
+            console.error("Seção 'TOTAL STATUS' não encontrada.");
+            return;
+          }
+
+          // Criar primeira tabela
+          createTable("dataTable", startIndex1 + 1, endIndex1);
+
+          // Encontrar o índice de início da segunda tabela "TOTAL STATUS"
+          const startIndex2 = endIndex1;
+
+          // Encontrar o índice de fim dos dados para "TOTAL STATUS"
+          const endIndex2 = rows.length;
+
+          // Criar segunda tabela
+          createTable("dataTable2", startIndex2, endIndex2);
+        })
+        .catch(error => console.error("Erro ao ler o arquivo:", error));
+    </script>
+  </body>
+</html>
